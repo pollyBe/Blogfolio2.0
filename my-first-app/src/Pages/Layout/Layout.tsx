@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "../../Components/Header/Header";
-import { ActiveContext, ThemeContext } from "../../Сontext/Context";
+import { ActiveContext, ThemeContext } from "../../Context/Context";
 import { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 

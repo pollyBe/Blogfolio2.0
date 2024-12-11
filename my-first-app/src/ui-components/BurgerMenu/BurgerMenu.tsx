@@ -1,7 +1,7 @@
 import  Menu  from "../../assets/menuIcon.svg?react";
 import  Cancel  from "../../assets/cancelIcon.svg?react";
 import { useContext } from "react";
-import { ActiveContext } from "../../Сontext/Context";
+import { ActiveContext } from "../../Context/Context";
 
 
 import style from './BurgerMenu.module.scss'

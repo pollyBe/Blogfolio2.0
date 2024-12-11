@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import Light  from "../../assets/light.svg?react";
 import Dark from "../../assets/dark.svg?react";
-import { ActiveContext, ThemeContext } from "../../Сontext/Context";
+import { ActiveContext, ThemeContext } from "../../Context/Context";
 import style from './Navbar.module.scss'
 
 import styles from "./Navbar.module.scss";
