@@ -1,0 +1,27 @@
+.inputWrap {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.inputBox {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #8d8e97;
+  padding: 18px 20px;
+  margin-top: 8px;
+}
+.inputBox:focus {
+  border: 1px solid #8d8e97;
+  color: #313037;
+}
+.inputBox:disabled {
+  background-color: #8d8e97;
+  pointer-events: none;
+}
+
+.inputBox.error {
+  border: 1px solid #fd3419;
+}/*# sourceMappingURL=Input.module.css.map */

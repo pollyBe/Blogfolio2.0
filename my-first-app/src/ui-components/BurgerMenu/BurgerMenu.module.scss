@@ -1,0 +1,20 @@
+.btnWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #2231aa;
+  border-right: 1px solid #5360cd;
+  cursor: pointer;
+}
+
+.burgerBtn {
+  background-color: #2231aa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border: none;
+  cursor: pointer;
+}

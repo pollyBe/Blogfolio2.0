@@ -1,0 +1,46 @@
+.searchwrap {
+  display: flex;
+  height: 100%;
+  width: 90vw;
+  display: flex;
+  justify-content: flex-end;
+  transition: 0.5s ease-in-out;
+}
+
+.inputBox {
+  display: block;
+  width: 100%;
+  font-size: 24px;
+  padding: 5px 10px;
+  background-color: #5360cd;
+  color: #f0f8ff;
+  transition: 0.5s ease-in-out;
+  border: none;
+}
+
+.hide {
+  display: none;
+}
+
+.buttonWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.7s ease-in-out;
+  padding: 20px 20px;
+  cursor: pointer;
+}
+.buttonWrap .button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2231aa;
+  color: #f0f8ff;
+  font-size: 28px;
+  font-weight: 600;
+  cursor: pointer;
+}/*# sourceMappingURL=Search.module.css.map */

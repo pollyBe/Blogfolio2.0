@@ -1,0 +1,17 @@
+.tab {
+  background: transparent;
+  color: grey;
+  font-size: 22px;
+  text-align: center;
+  border: none;
+  height: 100%;
+}
+
+.active {
+  background: transparent;
+  color: black;
+  font-size: 22px;
+  text-align: center;
+  height: 100%;
+  border: none;
+}/*# sourceMappingURL=Tablist.module.css.map */

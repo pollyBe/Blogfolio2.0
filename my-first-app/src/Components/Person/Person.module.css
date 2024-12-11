@@ -1,0 +1,40 @@
+.person {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.7s ease-in-out;
+  border-left: 1px solid #5360cd;
+  padding: 20px 30px;
+  background-color: #2231aa;
+}
+.person:hover {
+  transform: scale(0.97);
+}
+.person .initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5360cd;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+}
+.person .initials span {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 34px;
+  text-align: center;
+  color: rgb(220, 220, 234);
+}
+.person .username {
+  display: flex;
+  align-items: center;
+}
+.person .username span {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 34px;
+  text-align: center;
+  color: rgb(220, 220, 234);
+}/*# sourceMappingURL=Person.module.css.map */

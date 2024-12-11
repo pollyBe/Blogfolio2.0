@@ -1,0 +1,7 @@
+.tabListWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 25%;
+  padding: 15px 0;
+}/*# sourceMappingURL=Tabs.module.css.map */

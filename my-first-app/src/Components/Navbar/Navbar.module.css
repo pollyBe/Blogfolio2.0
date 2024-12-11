@@ -1,0 +1,68 @@
+.navbar {
+  position: absolute;
+  width: 236px;
+  height: 91vh;
+  background: #fff;
+  left: -100%;
+  transition: all 0.5s;
+}
+
+.navbar.active {
+  left: 0;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  text-align: center;
+  padding: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  border-bottom: 2px solid #dadada;
+  width: 100%;
+  color: #313037;
+}
+
+.linkActive {
+  text-align: center;
+  width: 100%;
+  padding: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #2231aa;
+  border-bottom: 2px solid #dadada;
+}
+
+.btnWrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  cursor: pointer;
+}
+.btnWrap .modeBtn {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 12px;
+  cursor: pointer;
+  border: 2px solid #8d8e97;
+}
+
+.navbarFooter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}/*# sourceMappingURL=Navbar.module.css.map */
