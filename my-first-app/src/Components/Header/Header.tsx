@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import BurgerMenu from "../../ui-components/BurgerMenu/BurgerMenu";
-import Person from "../Person/Person";
+import Person from "../../ui-components/Person/Person";
 import Search from "../Search/Search";
 
 import style from './Header.module.scss'

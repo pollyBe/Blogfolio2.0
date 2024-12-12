@@ -1,31 +1,27 @@
 import { Outlet } from "react-router-dom";
 import Header from "../../Components/Header/Header";
-import { ActiveContext, ThemeContext } from "../../Context/Context";
+import { ActiveContext } from "../../Context/Context";
 import { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
+import { useSelector } from "react-redux";
+import Footer from "../../Components/Footer/Footer";
 
 const Layout = () => {
   const [active, setActive] = useState(false);
-  const [pageTheme, setPageTheme] = useState("light");
-  const toggleTheme = () => {
-    setPageTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
+  const { theme } = useSelector((state)=>state.themeInStoreConfiguration)
+
   useEffect(() => {
     document.body.classList.remove("light-theme", "dark-theme");
-    document.body.classList.add(`${pageTheme}-theme`);
-  }, [pageTheme]);
+    document.body.classList.add(`${theme}-theme`);
+  }, [theme]);
   return (
     <ActiveContext.Provider
       value={{ isActive: active, SetIsActive: setActive }}
     >
-      <ThemeContext.Provider
-        value={{ theme: pageTheme, toggleTheme: toggleTheme }}
-      >
         <Header />
         <Navbar />
         <Outlet />
-        <div>footer</div>
-      </ThemeContext.Provider>
+        <Footer/>
     </ActiveContext.Provider>
   );
 };

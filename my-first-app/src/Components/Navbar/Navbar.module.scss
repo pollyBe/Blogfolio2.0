@@ -46,9 +46,19 @@
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  cursor: pointer;
 
-  .modeBtn {
+  .modeBtnLight {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 12px;
+    cursor: pointer;
+    border: 2px solid #8d8e97;
+  }
+  .modeBtnDark {
     background-color: #fff;
     width: 100%;
     height: 100%;
@@ -60,7 +70,9 @@
     border: 2px solid #8d8e97;
   }
 }
-
+.disabled {
+  pointer-events: none;
+}
 .navbarFooter {
   position: absolute;
   bottom: 0;

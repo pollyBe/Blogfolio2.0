@@ -27,7 +27,7 @@ const Input = ({ title, placeholder, type, onChange }: IInputProps) => {
     return true;
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const value = e.target.value;
     setText(value);
     onChange?.(value);

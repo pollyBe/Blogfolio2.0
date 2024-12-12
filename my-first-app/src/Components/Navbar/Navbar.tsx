@@ -1,17 +1,22 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+
+import Button from "../../ui-components/Button/Button";
+import Person from "../../ui-components/Person/Person";
+
 import Light  from "../../assets/light.svg?react";
 import Dark from "../../assets/dark.svg?react";
-import { ActiveContext, ThemeContext } from "../../Context/Context";
-import style from './Navbar.module.scss'
+import { ActiveContext } from "../../Context/Context";
 
+import style from './Navbar.module.scss'
 import styles from "./Navbar.module.scss";
-import Button from "../Button/Button";
-import Person from "../Person/Person";
+import { switchTheme } from "../../store/themeSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 const Navbar = () => {
   const context = useContext(ActiveContext);
-  const theme = useContext(ThemeContext);
-  console.log(theme?.theme);
+  const { theme } = useSelector((state)=>state.themeInStoreConfiguration)
+  const dispatch = useDispatch()
 
   return (
     <div
@@ -19,11 +24,13 @@ const Navbar = () => {
         !context?.isActive ? styles.navbar : `${styles.navbar} ${styles.active}`
       }
     >
-      <Person />
+      <div>
+        <Person />
+      </div>
       <div className={style.links}>
         <NavLink
           className={({ isActive }) => isActive ? style.linkActive : style.link}
-          to="/home"
+          to="/"
         >Home</NavLink>
         <NavLink
           className={({ isActive }) => isActive ? style.linkActive : style.link}
@@ -31,14 +38,16 @@ const Navbar = () => {
       </div>
       <div className={style.navbarFooter}>
       <div className = {style.btnWrap}>
-      <button onClick={theme?.toggleTheme} className = {style.modeBtn}>
+          <button onClick={() =>
+            dispatch(switchTheme('light'))
+          } className={theme == 'light' ? `${style.modeBtnLight} ${style.disabled}` : style.modeBtnLight}>
         <Light />
         </button>
-        <button onClick={theme?.toggleTheme} className = {style.modeBtn}>
+        <button onClick={()=>dispatch(switchTheme('dark'))} className = {theme == 'dark' ? `${style.modeBtnDark} ${style.disabled}` : style.modeBtnDark}>
         <Dark />
         </button>
       </div>
-      <Button btnType="Secondary">Log Out</Button>
+      <Button btnType="Secondary" text = 'Log Out' type='button'/>
       </div>
     </div>
   );

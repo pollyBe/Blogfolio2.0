@@ -14,7 +14,7 @@ const Tabs = () => {
       <div className={style.tabListWrap}>
         <Tablist selectedTab={showTab} setShowTab={handler} />
       </div>
-      <TabContent selectedTab={showTab} />
+      <TabContent />
     </>
   );
 };

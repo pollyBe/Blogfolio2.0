@@ -2,27 +2,29 @@
 import style from "./Button.module.scss";
 
 interface IProps {
-  children: React.ReactNode;
+  text:string,
   isDisabled?: boolean;
-  btnType?: "Primary" | "Secondary" | "Secondary 2";
+  btnType?: "Primary" | "Secondary" | "Secondary2";
   onClick?: () => void;
+  type:"submit" | "reset" | "button",
 }
 
-const Button = ({ isDisabled, children, btnType, onClick }: IProps) => {
+const Button = ({ isDisabled, text, btnType, onClick, type }: IProps) => {
   return (
     <div className={style.buttonWrap}>
       <button
         disabled={isDisabled}
         onClick={onClick}
+        type = {type}
         className={
           btnType === "Secondary"
             ? `button ${style.secondary}`
-            : btnType === "Secondary 2"
+            : btnType === "Secondary2"
             ? `button ${style.secondary2}`
             : `button ${style.button}`
         }
       >
-        {children}
+        {text}
       </button>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Button from "../Button/Button";
-import Input from "../Input/Input";
+import Button from "../../ui-components/Button/Button";
+import Input from "../../ui-components/Input/Input";
 
 import style from "./SignUpForm.module.scss";
 const SignUpForm = () => {
