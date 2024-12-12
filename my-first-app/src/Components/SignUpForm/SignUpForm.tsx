@@ -3,6 +3,7 @@ import Button from "../../ui-components/Button/Button";
 import Input from "../../ui-components/Input/Input";
 
 import style from "./SignUpForm.module.scss";
+import { NavLink } from "react-router-dom";
 const SignUpForm = () => {
   const [formValue, setFormValue] = useState({
     name: "",
@@ -26,10 +27,10 @@ const SignUpForm = () => {
           placeholder="Confirm password"
           title="Confirm password"
         />
-        <Button>Sign Up</Button>
+        <Button text = 'Sign Up' type='submit'/>
         <div className={style.formFooter}>
           <p>Already have an account?</p>
-          <a href="#">Sign in</a>
+          <NavLink to="/sign-in">Sign in</NavLink>
         </div>
       </form>
     </div>

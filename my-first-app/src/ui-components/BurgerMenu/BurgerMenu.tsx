@@ -1,16 +1,18 @@
 import  Menu  from "../../assets/menuIcon.svg?react";
 import  Cancel  from "../../assets/cancelIcon.svg?react";
-import { useContext } from "react";
-import { ActiveContext } from "../../Context/Context";
-
 
 import style from './BurgerMenu.module.scss'
+import { useDispatch, useSelector } from "react-redux";
+import { switchIsActive } from "../../store/isActiveSlice";
+
 const BurgerMenu = () => {
-  const context = useContext(ActiveContext);
+  const { isActive } = useSelector((state) => state.isActive)
+  const dispatch = useDispatch()
+  console.log('is active', isActive)
   return (
     <div className={style.btnWrap}>
-    <button onClick={() => context?.SetIsActive(!context.isActive)} className={style.burgerBtn}>
-      {!context?.isActive ? <Menu /> : <Cancel />}
+    <button onClick={() => dispatch(switchIsActive(isActive? false:true))} className={style.burgerBtn}>
+      {!isActive ? <Menu /> : <Cancel />}
       </button>
     </div>
   );

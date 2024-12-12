@@ -1,38 +1,37 @@
-import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import Button from "../../ui-components/Button/Button";
 import Person from "../../ui-components/Person/Person";
-
 import Light  from "../../assets/light.svg?react";
 import Dark from "../../assets/dark.svg?react";
-import { ActiveContext } from "../../Context/Context";
 
 import style from './Navbar.module.scss'
 import styles from "./Navbar.module.scss";
 import { switchTheme } from "../../store/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { switchIsActive } from "../../store/isActiveSlice";
+
 
 const Navbar = () => {
-  const context = useContext(ActiveContext);
-  const { theme } = useSelector((state)=>state.themeInStoreConfiguration)
+  const { theme } = useSelector((state) => state.themeInStoreConfiguration)
+  const { isActive } = useSelector((state) => state.isActive)
   const dispatch = useDispatch()
 
   return (
     <div
       className={
-        !context?.isActive ? styles.navbar : `${styles.navbar} ${styles.active}`
+        !isActive ? styles.navbar : `${styles.navbar} ${styles.active}`
       }
     >
       <div>
         <Person />
       </div>
       <div className={style.links}>
-        <NavLink
+        <NavLink onClick={()=>dispatch(switchIsActive(false))}
           className={({ isActive }) => isActive ? style.linkActive : style.link}
           to="/"
         >Home</NavLink>
-        <NavLink
+        <NavLink onClick={()=>dispatch(switchIsActive(false))}
           className={({ isActive }) => isActive ? style.linkActive : style.link}
           to="/about">About us</NavLink>
       </div>

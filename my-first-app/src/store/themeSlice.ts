@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { createSlice } from "@reduxjs/toolkit";
 
 const MyThemeSlice = createSlice({

@@ -3,12 +3,15 @@ import style from './Person.module.scss'
 // import Button from "../Button/Button"
 import User from '../../assets/user.svg?react'
 import { NavLink } from "react-router-dom"
+import { useDispatch } from 'react-redux'
+import { switchIsActive } from '../../store/isActiveSlice'
 
 // interface IProps {
 //   userName: string,
 // }
 
 const Person = () => {
+  const dispatch = useDispatch()
   // const [authorized, setAuthorized] = useState(false)
   // const initials = useMemo(()=>
   // {
@@ -25,7 +28,7 @@ const Person = () => {
             <span>{ userName}</span>
           </div>
         </div> : */}
-        <NavLink to='/home/sign-up'><User /></NavLink>
+        <NavLink onClick={()=>dispatch(switchIsActive(false))} to='/sign-up'><User /></NavLink>
     </div>
   )
 }
