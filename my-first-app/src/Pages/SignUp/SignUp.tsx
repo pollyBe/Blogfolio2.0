@@ -7,7 +7,7 @@ const SignUp = () => {
   return (
     <div className={style.container}>
       <div className={style.titleWrap}>
-        <NavLink to="/home">Back to home</NavLink>
+        <NavLink to="/">Back to home</NavLink>
         <Title>Sign Up</Title>
       </div>
       <SignUpForm/>

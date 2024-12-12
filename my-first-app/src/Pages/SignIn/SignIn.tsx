@@ -8,7 +8,7 @@ const SignIn = () => {
     <div>
       <div className={style.container}>
         <div className={style.titleWrap}>
-          <NavLink to="/home">Back to home</NavLink>
+          <NavLink to="/">Back to home</NavLink>
           <Title>Sign In</Title>
         </div>
         <SignInForm/>
