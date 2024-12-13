@@ -1,0 +1,25 @@
+.formWrap {
+  width: 40%;
+  margin: 0 auto 152px;
+  padding: 40px;
+  border: 1px solid #dadada;
+}
+.textWrap {
+  margin-bottom: 48px;
+  p {
+    max-width: 65%;
+    text-align: left;
+    font-family: "Catamaran", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #313037;
+    a {
+      font-family: "Catamaran", sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 700;
+      color: #313037;
+    }
+  }
+}

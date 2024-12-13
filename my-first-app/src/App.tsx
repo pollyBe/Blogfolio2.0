@@ -6,6 +6,7 @@ import Home from "./Pages/Home/Home";
 import About from "./Pages/About/About";
 import SignUp from "./Pages/SignUp/SignUp";
 import SignIn from "./Pages/SignIn/SignIn";
+import RegConfirm from "./Pages/RegConfirm/RegConfirm";
 const App = () => {
   return (
     <>
@@ -13,7 +14,8 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path='/sign-up' element={<SignUp />} />
-          <Route path = '/sign-in' element = {<SignIn/>} />
+          <Route path='/sign-in' element={<SignIn />} />
+          <Route path='/confirm' element={<RegConfirm/>} />
           <Route path ="/about" element = {<About/>}/>
         </Route>
       </Routes>
