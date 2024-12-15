@@ -40,10 +40,10 @@ const Navbar = () => {
           <button onClick={() =>
             dispatch(switchTheme('light'))
           } className={theme == 'light' ? `${style.modeBtnLight} ${style.disabled}` : style.modeBtnLight}>
-        <Light />
+            <Light className={style.icon} />
         </button>
         <button onClick={()=>dispatch(switchTheme('dark'))} className = {theme == 'dark' ? `${style.modeBtnDark} ${style.disabled}` : style.modeBtnDark}>
-        <Dark />
+        <Dark className={style.icon}/>
         </button>
       </div>
       <Button btnType="Secondary" text = 'Log Out' type='button'/>

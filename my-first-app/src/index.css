@@ -23,14 +23,15 @@
 body {
   margin: 0;
   height: 100vh;
-  background-color: #f3f3f3;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .light-theme {
-  background-color: #f3f3f3;
-  color: black;
+  --background-color: #f3f3f3;
+  --text-color: #45444c;
 }
 .dark-theme {
-  background-color: #313037;
-  color: white;
+  --background-color: #45444c;
+  --text-color: #f3f3f3;
 }

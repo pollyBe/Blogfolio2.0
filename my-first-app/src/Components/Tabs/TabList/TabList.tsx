@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./Tablist.module.scss";
 const Tablist = ({
   selectedTab,
@@ -9,7 +8,7 @@ const Tablist = ({
 }) => {
   const tabs: string[] = ["All", "My Favourites", "Popular"];
   const tabsMarkup = tabs.map((el, index) => (
-    <React.Fragment key={index}>
+    <div className={style.tabsWrap} key={index}>
       <button
         className={selectedTab == index ? style.active : style.tab}
         key={index}
@@ -17,7 +16,7 @@ const Tablist = ({
       >
         {el}
       </button>
-    </React.Fragment>
+    </div>
   ));
   return tabsMarkup;
 };

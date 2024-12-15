@@ -15,7 +15,7 @@ const PostCard = ({ size, date, title, description, image }: IProps) => {
 
   switch (size) {
     case 'sizeL':
-      return (<div className={style.cardSizeL}>
+      return (<li className={style.cardSizeL}>
     <div className={style.cardWrap}>
       <div className={style.infoWrap}>
         <div className={style.date}>
@@ -23,7 +23,7 @@ const PostCard = ({ size, date, title, description, image }: IProps) => {
         </div>
         <h3 className={style.title}>{title.substring(0, 150)} ...</h3>
         <div className={style.description}>
-          <p>{description.substring(0, 400)} ...</p>
+          <p>{description.substring(0, 300)} ...</p>
         </div>
       </div>
       <div className={style.imgWrap}>
@@ -40,9 +40,9 @@ const PostCard = ({ size, date, title, description, image }: IProps) => {
         <button type='button'>...</button>
       </div>
     </div>
-  </div>);
+  </li>);
   case 'sizeM':
-    return (<div className={style.cardSizeM}>
+    return (<li className={style.cardSizeM}>
       <div className={style.cardWrap}>
         <div className={style.imgWrap}>
           <img src={image} />
@@ -50,7 +50,7 @@ const PostCard = ({ size, date, title, description, image }: IProps) => {
         <div className={style.date}>
             <p>{date}</p>
         </div>
-        <h3 className={style.title}>{title.substring(0, 150)} ...</h3>
+        <h3 className={style.title}>{title.substring(0, 50)} ...</h3>
       </div>
       <div className={style.postFooter}>
         <div className={style.btnWrap}>
@@ -62,9 +62,9 @@ const PostCard = ({ size, date, title, description, image }: IProps) => {
           <button type='button'>...</button>
         </div>
       </div>
-    </div>);
+    </li>);
     case 'sizeS':
-      return (<div className={style.cardSizeS}>
+      return (<li className={style.cardSizeS}>
         <div className={style.cardWrap}>
         <div className={style.infoWrap}>
           <div className={style.date}>
@@ -86,7 +86,7 @@ const PostCard = ({ size, date, title, description, image }: IProps) => {
             <button type='button'>...</button>
           </div>
         </div>
-      </div>);
+      </li>);
   }
 }
 export default PostCard

@@ -1,10 +1,11 @@
 .navbar {
   position: absolute;
-  width: 236px;
+  width: 20%;
   height: 91vh;
-  background: #fff;
+  background: var(--background-color);
   left: -100%;
   transition: all 0.5s;
+  border-right: 1px solid #dadada;
 }
 .navbar.active {
   left: 0;
@@ -26,7 +27,7 @@
   line-height: 24px;
   border-bottom: 2px solid #dadada;
   width: 100%;
-  color: #313037;
+  color: var(--text-color);
 }
 
 .linkActive {
@@ -45,10 +46,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: var(--background-color);
 
   .modeBtnLight {
-    background-color: #fff;
+    background-color: var(--background-color);
     width: 100%;
     height: 100%;
     display: flex;
@@ -59,7 +60,7 @@
     border: 2px solid #8d8e97;
   }
   .modeBtnDark {
-    background-color: #fff;
+    background-color: var(--background-color);
     width: 100%;
     height: 100%;
     display: flex;
@@ -77,4 +78,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+.icon {
+  fill: var(--text-color);
 }
