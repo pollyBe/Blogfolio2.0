@@ -10,18 +10,19 @@ interface IProps {
   title: string,
   description: string,
   image?: string,
+  onClick: () => void,
 }
-const PostCard = ({ size, date, title, description, image }: IProps) => {
+const PostCard = ({ size, date, title, description, image, onClick }: IProps) => {
 
   switch (size) {
     case 'sizeL':
-      return (<li className={style.cardSizeL}>
+      return (<li className={style.cardSizeL} onClick={onClick}>
     <div className={style.cardWrap}>
       <div className={style.infoWrap}>
         <div className={style.date}>
           <p>{date}</p>
         </div>
-        <h3 className={style.title}>{title.substring(0, 150)} ...</h3>
+        <h3 className={style.title} >{title.substring(0, 150)} ...</h3>
         <div className={style.description}>
           <p>{description.substring(0, 300)} ...</p>
         </div>
@@ -42,9 +43,9 @@ const PostCard = ({ size, date, title, description, image }: IProps) => {
     </div>
   </li>);
   case 'sizeM':
-    return (<li className={style.cardSizeM}>
+    return (<li className={style.cardSizeM} onClick={onClick}>
       <div className={style.cardWrap}>
-        <div className={style.imgWrap}>
+        <div className={style.imgWrap} >
           <img src={image} />
         </div>
         <div className={style.date}>
@@ -64,7 +65,7 @@ const PostCard = ({ size, date, title, description, image }: IProps) => {
       </div>
     </li>);
     case 'sizeS':
-      return (<li className={style.cardSizeS}>
+      return (<li className={style.cardSizeS} onClick={onClick}>
         <div className={style.cardWrap}>
         <div className={style.infoWrap}>
           <div className={style.date}>

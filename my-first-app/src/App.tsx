@@ -7,14 +7,16 @@ import About from "./Pages/About/About";
 import SignUp from "./Pages/SignUp/SignUp";
 import SignIn from "./Pages/SignIn/SignIn";
 import RegConfirm from "./Pages/RegConfirm/RegConfirm";
-import Posts from "./Pages/Posts/Posts";
+import Posts from "./Pages/Post/Post";
 import Success from "./Pages/Success/Success";
+import Post from "./Pages/Post/Post";
 const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path='/:id' element={<Post/>}/>
           <Route path = 'posts' element = {<Posts/>}/>
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/sign-in' element={<SignIn />} />

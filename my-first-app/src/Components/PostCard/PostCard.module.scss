@@ -2,6 +2,8 @@
   width: 100%;
   grid-column: span 2;
   grid-row: span 2;
+  cursor: pointer;
+
   .cardWrap {
     display: flex;
     width: 100%;
@@ -85,6 +87,8 @@
   width: 100%;
   grid-column: span 1;
   grid-row: span 2;
+  cursor: pointer;
+
   .cardWrap {
     display: flex;
     width: 100%;
