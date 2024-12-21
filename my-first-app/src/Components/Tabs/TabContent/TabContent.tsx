@@ -2,8 +2,8 @@ import { useEffect} from 'react'
 import PostCard from '../../PostCard/PostCard'
 import style from './TabContent.module.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { setPost } from '../../../store/postSlice';
 import { useNavigate } from 'react-router-dom';
+import { FetchPosts, selectPost } from '../../../store/postSliceRTK';
 
 interface IPost{
   size: 'sizeL' | 'sizeM' | 'sizeS',
@@ -16,13 +16,17 @@ interface IPost{
 
 const TabContent = () => {
   const dispatch = useDispatch()
-  const { posts } = useSelector((state) => state.posts)
+  const { posts, loading, error } = useSelector((state) => state.posts)
   const navigate = useNavigate()
 useEffect(() => {
-  fetch('https://studapi.teachmeskills.by/blog/posts/?author__course_group=14&limit=8')
-  .then((response) => response.json())
-  .then((data) => dispatch(setPost(data.results)))
-})
+  dispatch(FetchPosts())
+}, [])
+if (loading) {
+  return <div>loading...</div>;
+}
+if (error) {
+  return <div>Error...</div>;
+}
 
   const getPostSize = (index: number) => {
     if (index === 0) return 'sizeL';
@@ -32,14 +36,18 @@ useEffect(() => {
   return (
     <ul className={style.postsWrap}>
     {
-        posts.map(({ date, title, description, image, id }: IPost, index: number) => (
-          <PostCard key={id}
-          onClick={() => navigate(`${id}`)}
+        posts.map((post: IPost, index: number) => (
+          <PostCard key={post.id}
+            onClick={() => {
+              dispatch(selectPost(post))
+              navigate('/post')
+              }
+            }
           size={getPostSize(index)}
-          date={date}
-          title={title}
-          description={description}
-          image={image}
+          date={post.date}
+          title={post.title}
+          description={post.description}
+          image={post.image}
         />
       ))
     }

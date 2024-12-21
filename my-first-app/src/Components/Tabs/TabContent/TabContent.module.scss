@@ -8,3 +8,30 @@
   grid-template-rows: repeat(6, 206px);
   gap: 30px;
 }
+.postFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-bottom: 1px solid #dadada;
+  padding-bottom: 40px;
+  .btnWrap {
+    display: flex;
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background-color: transparent;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+  }
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  fill: var(--text-color);
+}

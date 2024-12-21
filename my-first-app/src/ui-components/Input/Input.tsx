@@ -2,50 +2,30 @@ import { useState } from "react";
 import style from "./Input.module.scss";
 
 interface IInputProps {
-  title?: string;
-  placeholder: string;
-  type: "text" | "e-mail" | "password" | "confirmPassword";
-  onChange?: (value: string) => void;
+  title?: string,
+  placeholder: string,
+  type: "text" | "e-mail" | "password" | "confirmPassword",
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
+  name: string,
+  value?: string,
 }
 
-const Input = ({ title, placeholder, type, onChange }: IInputProps) => {
-  const [text, setText] = useState("");
+const Input = ({ title, placeholder, type, onChange, name }: IInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isError, setIsError] = useState(false);
-
-  const inputIsValid = (value: string) => {
-    if (type === "text") {
-      return value.trim().length > 0;
-    }
-    if (type === "e-mail") {
-      const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailCheck.test(value);
-    }
-    if (type === "password") {
-      return value.length >= 7;
-    }
-    return true;
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const value = e.target.value;
-    setText(value);
-    onChange?.(value);
-    setIsError(!inputIsValid(value));
-  };
 
   return (
     <div className={style.inputWrap}>
       <label className={style.label}>{title}</label>
       <input
+        name={name}
         className={`${style.inputBox} ${isError ? style.error : ""}`}
         type={type}
-        value={text}
         placeholder={isFocused ? "" : placeholder}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        onChange={handleChange}
-      />
+        onChange={onChange}
+      />{isError?(<p className={style.errorText}>Passwords does not match</p>):null}
     </div>
   );
 };

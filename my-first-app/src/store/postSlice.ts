@@ -1,23 +1,45 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const postsSlice = createSlice({
+const postSlice = createSlice({
   name: "posts",
   initialState: {
     posts: [],
+    loading: false,
+    error: null,
     selectedPost: null,
   },
   reducers: {
     selectPost(state, action) {
+      console.log(action.payload);
       state.selectedPost = action.payload;
     },
     clearPost(state) {
       state.selectedPost = null;
     },
-    setPost(state, action) {
+    fetchPostStart(state) {
+      state.loading = true;
+      state.error = null;
+    },
+    fetchPostSuccess(state, action) {
+      state.loading = false;
       state.posts = action.payload;
+    },
+    fetchPostFail(state, action) {
+      state.loading = false;
+      state.error = action.payload;
     },
   },
 });
 
-export const { selectPost, clearPost, setPost } = postsSlice.actions;
-export default postsSlice.reducer;
+export const {
+  selectPost,
+  clearPost,
+  fetchPostFail,
+  fetchPostStart,
+  fetchPostSuccess,
+} = postSlice.actions;
+
+export const fetchPostsAction = () => {
+  return { type: "posts/fetchPosts" };
+};
+export default postSlice.reducer;

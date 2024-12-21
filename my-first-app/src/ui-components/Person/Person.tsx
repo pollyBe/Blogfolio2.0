@@ -3,33 +3,41 @@ import style from './Person.module.scss'
 // import Button from "../Button/Button"
 import User from '../../assets/user.svg?react'
 import { NavLink } from "react-router-dom"
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { switchIsActive } from '../../store/isActiveSlice'
+import { useEffect, useMemo } from 'react'
+import { getUserData } from '../../store/userMeSlice'
 
-// interface IProps {
-//   userName: string,
-// }
 
 const Person = () => {
   const dispatch = useDispatch()
-  // const [authorized, setAuthorized] = useState(false)
-  // const initials = useMemo(()=>
-  // {
-  //   return userName.split(' ').map((item)=>{return item[0]}).join('')
-  // },[userName])
+  const { auth } = useSelector((state:any) => state.signIn);
+  const { userInfo } = useSelector((state:any) => state.userMe)
+
+  useEffect(()=>{
+    if (!auth) dispatch(getUserData())
+  })
+  const userName = userInfo?.userName || '';
+  const initials = useMemo(()=>
+  {
+    return userName.split(' ').map((item:any)=>{return item[0]}).join('')
+  }, [userName])
+
   return (
     <div className={style.person}>
-      {/* {authorized ?
+      {auth ? (
         <div >
           <div className={style.initials}>
-            <span>{ initials}</span>
+            <span>{initials}</span>
           </div>
           <div className={style.username}>
-            <span>{ userName}</span>
+            <span>{userName}</span>
           </div>
-        </div> : */}
-        <NavLink onClick={()=>dispatch(switchIsActive(false))} to='/sign-up'><User /></NavLink>
-    </div>
+        </div>
+      ) : (
+        <NavLink onClick={() => dispatch(switchIsActive(false))} to='/sign-in'><User /></NavLink>
+      )}
+            </div>
   )
 }
 
