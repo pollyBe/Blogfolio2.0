@@ -10,7 +10,7 @@ const Success = () => {
       <div className={style.container}>
         <div className={style.titleWrap}>
           <NavLink to="/">Back to home</NavLink>
-          <Title>Success</Title>
+          <Title title='Success'/>
         </div>
         <SuccessForm />
       </div>

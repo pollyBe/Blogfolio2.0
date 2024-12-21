@@ -5,7 +5,7 @@ import Title from '../../ui-components/Title/Title'
 const Home = () => {
   return (
     <div className={style.homeContainer}>
-      <Title>Blog</Title>
+      <Title title = 'Blog'/>
       <Tabs />
     </div>
   )

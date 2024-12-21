@@ -1,10 +1,10 @@
 import style from './Title.module.scss'
 
 interface IProps{
-  children: React.ReactNode,
+  title: string,
 }
 
-const Title = ({children}:IProps) => {
-  return <h1 className={style.title}>{children}</h1>
+const Title = ({title}:IProps) => {
+  return <h1 className={style.title}>{title}</h1>
 }
 export default Title

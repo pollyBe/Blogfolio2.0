@@ -21,7 +21,7 @@ const SignUpForm = () => {
 
   const formHandler = (e: React.ChangeEvent<HTMLFormElement>) => {
     e?.preventDefault();
-    dispatch(signUpUser(registraionData));
+    dispatch(signUpUser());
   };
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

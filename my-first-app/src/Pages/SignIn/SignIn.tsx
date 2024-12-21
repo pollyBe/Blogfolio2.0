@@ -11,7 +11,7 @@ const SignIn = () => {
       <div className={style.container}>
         <div className={style.titleWrap}>
           <NavLink to="/">Back to home</NavLink>
-          <Title>Sign In</Title>
+          <Title title='Sign In'/>
         </div>
         <SignInForm/>
       </div>

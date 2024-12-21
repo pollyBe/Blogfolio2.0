@@ -32,9 +32,10 @@ const Navbar = () => {
       className={
         !isActive ? styles.navbar : `${styles.navbar} ${styles.active}`
       }
-    >{auth? <div>
+    >
+      <div>
       <Person />
-    </div> : null}
+      </div>
 
       <div className={style.links}>
         <NavLink onClick={closeNavBar}

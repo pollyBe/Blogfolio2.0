@@ -8,7 +8,7 @@ const SignUp = () => {
     <div className={style.container}>
       <div className={style.titleWrap}>
         <NavLink to="/">Back to home</NavLink>
-        <Title>Sign Up</Title>
+        <Title title='Sign Up'/>
       </div>
       <SignUpForm/>
     </div>

@@ -8,7 +8,7 @@ import { switchIsActive } from "../../store/isActiveSlice";
 const BurgerMenu = () => {
   const { isActive } = useSelector((state) => state.isActive)
   const dispatch = useDispatch()
-  console.log('is active', isActive)
+
   return (
     <div className={style.btnWrap}>
     <button onClick={() => dispatch(switchIsActive(isActive? false:true))} className={style.burgerBtn}>

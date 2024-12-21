@@ -9,7 +9,7 @@ const RegConfirm = () => {
     <div className={style.container}>
       <div className={style.titleWrap}>
         <NavLink to="/">Back to home</NavLink>
-        <Title>Registration Confirmation</Title>
+        <Title title='Registration Confirmation'/>
       </div>
       <RegConfirmForm email='example@gmail.com' />
     </div>
