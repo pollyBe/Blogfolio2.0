@@ -40,7 +40,7 @@ const SignInForm = () => {
     <form className={style.form} onSubmit={formHandler}>
         <Input
           name='email'
-          type="e-mail"
+          type="email"
           placeholder="Your email"
           title="Email"
           onChange={inputHandler}

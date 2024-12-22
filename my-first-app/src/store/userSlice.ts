@@ -19,6 +19,7 @@ export const signUpUser = createAsyncThunk(
         throw new Error("error is here");
       }
       const data = await responce.json();
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue((error as Error).message);
@@ -45,6 +46,7 @@ export const activateUser = createAsyncThunk(
         throw new Error("error is here");
       }
       const data = await responce.json();
+      console.log(data);
       return true;
     } catch (error) {
       return rejectWithValue(false);

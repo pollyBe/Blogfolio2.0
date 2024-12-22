@@ -21,7 +21,7 @@ const SignUpForm = () => {
 
   const formHandler = (e: React.ChangeEvent<HTMLFormElement>) => {
     e?.preventDefault();
-    dispatch(signUpUser());
+    dispatch(signUpUser(registraionData));
   };
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -35,7 +35,7 @@ const SignUpForm = () => {
       setIsError(true)
     }
   }
-
+console.log(registraionData)
   return (
     <div className={style.formWrap}>
       <form className={style.form} onSubmit={formHandler}>
@@ -49,7 +49,7 @@ const SignUpForm = () => {
         />
         <Input
           name='email'
-          type="e-mail"
+          type="email"
           value={registraionData.email}
           placeholder="Your email"
           onChange={inputHandler}
@@ -68,7 +68,7 @@ const SignUpForm = () => {
           title="Confirm password"
           onChange={passwordCheckHandler}
         />
-        <Button text = 'Sign Up' type='submit' onClick={()=> navigate('/confirm')} />
+        <Button text = 'Sign Up' type='submit' />
         <div className={style.formFooter}>
           <p>Already have an account?</p>
           <NavLink to="/sign-in">Sign in</NavLink>

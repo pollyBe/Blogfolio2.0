@@ -5,6 +5,7 @@ import { thunk } from "redux-thunk";
 import postSliceRTK from "./postSliceRTK";
 import signInSlice from "./signInSlice";
 import userMeSlice from "./userMeSlice";
+import userSlice from "./userSlice";
 
 export default configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export default configureStore({
     posts: postSliceRTK,
     signIn: signInSlice,
     userMe: userMeSlice,
+    user: userSlice,
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware().concat(thunk);

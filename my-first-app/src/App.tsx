@@ -10,6 +10,7 @@ import RegConfirm from "./Pages/RegConfirm/RegConfirm";
 import Posts from "./Pages/Post/Post";
 import Success from "./Pages/Success/Success";
 import Post from "./Pages/Post/Post";
+import RegConfirmForm from "./Components/RegConfirmForm/RegConfirmForm";
 const App = () => {
   return (
     <>
@@ -22,7 +23,8 @@ const App = () => {
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/confirm' element={<RegConfirm />} />
           <Route path='/success' element={<Success/>}/>
-          <Route path ="/about" element = {<About/>}/>
+          <Route path="/about" element={<About />} />
+          <Route path="activate/:uid/:token" element={<RegConfirm />} />
         </Route>
       </Routes>
     </>

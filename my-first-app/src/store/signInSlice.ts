@@ -25,7 +25,7 @@ export const signInUser = createAsyncThunk(
       const data = await response.json();
       localStorage.setItem("access", JSON.stringify(data.access));
       localStorage.setItem("refresh", JSON.stringify(data.refresh));
-      console.log(data);
+      console.log(data, userLoginData);
       dispatch(startTokenUpdate());
     } catch (error) {
       return rejectWithValue((error as Error).message);

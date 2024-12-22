@@ -1,6 +1,4 @@
-// import { useMemo, useState } from "react"
 import style from './Person.module.scss'
-// import Button from "../Button/Button"
 import User from '../../assets/user.svg?react'
 import { NavLink } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
@@ -16,8 +14,9 @@ const Person = () => {
 
   useEffect(()=>{
     if (!auth) dispatch(getUserData())
-  })
+  },[auth])
   const userName = userInfo?.userName || '';
+  console.log(userInfo)
   const initials = useMemo(()=>
   {
     return userName.split(' ').map((item:any)=>{return item[0]}).join('')

@@ -4,7 +4,7 @@ import style from "./Input.module.scss";
 interface IInputProps {
   title?: string,
   placeholder: string,
-  type: "text" | "e-mail" | "password" | "confirmPassword",
+  type: "text" | "email" | "password" | "confirmPassword",
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
   name: string,
   value?: string,
