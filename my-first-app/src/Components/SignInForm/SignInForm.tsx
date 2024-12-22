@@ -13,7 +13,7 @@ interface ILogin {
 }
 
 const SignInForm = () => {
-  const { auth } = useSelector((state) => state.signIn);
+  const { auth } = useSelector((state:any) => state.signIn);
   const [loginData, setLoginData] = useState<ILogin>({
     email: "",
     password: "",

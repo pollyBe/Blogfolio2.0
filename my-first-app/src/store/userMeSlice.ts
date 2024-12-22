@@ -4,7 +4,7 @@ export const getUserData = createAsyncThunk(
   "user/getUserData",
   async (_, { rejectWithValue }) => {
     try {
-      const { access } = JSON.parse(localStorage.getItem("token") as string);
+      const { access } = JSON.parse(localStorage.getItem("access") as string);
       const response = await fetch(
         "https://studapi.teachmeskills.by/auth/users/me/",
         {
@@ -29,7 +29,7 @@ const userMeSlice = createSlice({
   name: "userMe",
   initialState: {
     userInfo: {
-      userName: "",
+      username: "",
       id: 0,
       email: "",
     },

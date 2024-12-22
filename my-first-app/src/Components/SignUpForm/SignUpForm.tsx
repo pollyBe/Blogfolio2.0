@@ -2,17 +2,17 @@ import { useState } from "react";
 import Button from "../../ui-components/Button/Button";
 import Input from "../../ui-components/Input/Input";
 
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signUpUser } from "../../store/userSlice";
 
 import style from "./SignUpForm.module.scss";
 
 const SignUpForm = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [isError, setIsError] = useState(false);
   const [registraionData, setRegistrationData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
     course_group: 14,
@@ -40,11 +40,11 @@ console.log(registraionData)
     <div className={style.formWrap}>
       <form className={style.form} onSubmit={formHandler}>
         <Input
-          name='name'
+          name='username'
           type="text"
           placeholder="Your name"
           title="Name"
-          value={registraionData.name}
+          value={registraionData.username}
           onChange={inputHandler}
         />
         <Input
