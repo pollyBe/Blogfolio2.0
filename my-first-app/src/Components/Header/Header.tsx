@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { switchIsActive } from "../../store/isActiveSlice";
 import BurgerMenu from "../../ui-components/BurgerMenu/BurgerMenu";

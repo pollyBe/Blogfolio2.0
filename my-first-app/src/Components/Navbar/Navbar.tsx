@@ -1,7 +1,7 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import Button from "../../ui-components/Button/Button";
-// import Person from "../../ui-components/Person/Person";
+import Person from "../../ui-components/Person/Person";
 import Light  from "../../assets/light.svg?react";
 import Dark from "../../assets/dark.svg?react";
 
@@ -33,9 +33,9 @@ const Navbar = () => {
         !isActive ? styles.navbar : `${styles.navbar} ${styles.active}`
       }
     >
-      {/* <div>
-      <Person />
-      </div> */}
+      {auth ? <div>
+        <Person />
+      </div> : null}
 
       <div className={style.links}>
         <NavLink onClick={closeNavBar}

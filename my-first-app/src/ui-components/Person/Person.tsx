@@ -9,28 +9,26 @@ import { getUserData } from '../../store/userMeSlice'
 const Person = () => {
   const dispatch = useDispatch()
   const { auth } = useSelector((state:any) => state.signIn);
-  const { userInfo } = useSelector((state:any) => state.userMe)
+  const { username } = useSelector((state:any) => state.userMe.userInfo)
 
   useEffect(()=>{
     if (auth) dispatch(getUserData())
   },[auth])
-  const userName = userInfo?.username || '';
-  console.log(userInfo.username)
+  // const userName = userInfo?.username || '';
+  // console.log(userInfo.username)
   const initials = useMemo(()=>
   {
-    return userName.split(' ').map((item:any)=>{return item[0]}).join('')
-  }, [userName])
+    return username.split(' ').map((item:any)=>{return item[0]}).join('')
+  }, [username])
 
   return (
     <div className={style.person}>
-        <div >
           <div className={style.initials}>
             <span>{initials}</span>
           </div>
           <div className={style.username}>
-            <span>{userName}</span>
+            <span>{username}</span>
           </div>
-        </div>
     </div>
   )
 }
