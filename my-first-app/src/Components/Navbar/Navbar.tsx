@@ -45,6 +45,9 @@ const Navbar = () => {
         <NavLink onClick={closeNavBar}
           className={myClass()}
           to="/about">About us</NavLink>
+        <NavLink onClick={closeNavBar}
+          className={myClass()}
+          to="/my-posts">My Posts</NavLink>
       </div>
       <div className={style.navbarFooter}>
       <div className = {style.btnWrap}>

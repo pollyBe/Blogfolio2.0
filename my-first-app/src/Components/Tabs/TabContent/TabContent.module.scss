@@ -2,7 +2,7 @@
   border: none;
   border-top: 1px solid #dadada;
   padding: 40px 0 0;
-  margin: 0;
+  margin: 0 0 72px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(6, 206px);
@@ -29,9 +29,54 @@
     }
   }
 }
+.NumberButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--text-color);
+  gap: 8px;
+}
 
 .icon {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 14px;
   fill: var(--text-color);
+}
+
+.pageNubmers {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+.pageNubmersCurr {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #2231aa;
+}
+
+.pageNubmersWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.numbersWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

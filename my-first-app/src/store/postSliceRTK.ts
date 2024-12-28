@@ -2,16 +2,17 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const FetchPosts = createAsyncThunk(
   "posts/fetchPosts",
-  async (_, { rejectWithValue }) => {
+  async (objectFromPostsPage, { rejectWithValue }) => {
+    const { limit, offset, searchQuery, ordering } = objectFromPostsPage;
     try {
       const responce = await fetch(
-        "https://studapi.teachmeskills.by/blog/posts/?author__course_group=14&limit=9"
+        `https://studapi.teachmeskills.by/blog/posts/?limit=${limit}&offset=${offset}&ordering=${ordering}&search=${searchQuery}`
       );
       if (!responce.ok) {
         throw new Error("error");
       }
       const data = await responce.json();
-      return data.results;
+      return data;
     } catch (error: any) {
       return rejectWithValue(error.message || "error");
     }
@@ -21,6 +22,11 @@ const postSliceRTK = createSlice({
   name: "posts",
   initialState: {
     posts: [],
+    totalItems: 0,
+    currentPage: 1,
+    itemsPerPage: 11,
+    searchQuery: "",
+    ordering: "",
     loading: false,
     error: null as string | null,
     selectedPost: null,
@@ -29,6 +35,15 @@ const postSliceRTK = createSlice({
     selectPost(state, action) {
       console.log(action.payload);
       state.selectedPost = action.payload;
+    },
+    setPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+    setSearchQuery: (state, action) => {
+      state.searchQuery = action.payload;
+    },
+    setOrdering: (state, action) => {
+      state.ordering = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -39,7 +54,8 @@ const postSliceRTK = createSlice({
       })
       .addCase(FetchPosts.fulfilled, (state, action) => {
         state.loading = false;
-        state.posts = action.payload;
+        state.posts = action.payload.results;
+        state.totalItems = action.payload.count;
       })
       .addCase(FetchPosts.rejected, (state, action) => {
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -47,5 +63,6 @@ const postSliceRTK = createSlice({
       });
   },
 });
-export const { selectPost } = postSliceRTK.actions;
+export const { selectPost, setPage, setSearchQuery, setOrdering } =
+  postSliceRTK.actions;
 export default postSliceRTK.reducer;

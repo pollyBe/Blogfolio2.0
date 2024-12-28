@@ -5,7 +5,7 @@ export const getUserData = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const access = JSON.parse(localStorage.getItem("access") as string);
-      console.log(access);
+
       const response = await fetch(
         "https://studapi.teachmeskills.by/auth/users/me/",
         {

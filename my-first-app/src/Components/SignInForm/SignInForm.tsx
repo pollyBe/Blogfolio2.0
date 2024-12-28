@@ -1,11 +1,11 @@
-import { Link, useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import Button from "../../ui-components/Button/Button"
 import Input from "../../ui-components/Input/Input"
 
 import style from './SignInForm.module.scss'
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch} from "react-redux"
 import { signInUser } from "../../store/signInSlice"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 interface ILogin {
   email: string;
@@ -13,15 +13,11 @@ interface ILogin {
 }
 
 const SignInForm = () => {
-  const { auth } = useSelector((state:any) => state.signIn);
   const [loginData, setLoginData] = useState<ILogin>({
     email: "",
     password: "",
   });
   const dispatch = useDispatch()
-  const { pathname } = (useLocation().state || { from: "/" }).from;
-  const navigate = useNavigate();
-
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setLoginData((prev) => ({ ...prev, [name]: value }));
@@ -30,11 +26,7 @@ const SignInForm = () => {
     e.preventDefault();
     dispatch(signInUser(loginData));
   };
-  useEffect(() => {
-    if (auth) {
-      navigate(pathname, { replace: true });
-    }
-  }, [auth]);
+
   return (
     <div className={style.formWrap}>
     <form className={style.form} onSubmit={formHandler}>
