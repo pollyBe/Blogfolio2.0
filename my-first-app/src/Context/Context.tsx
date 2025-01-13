@@ -1,3 +1,5 @@
+//TODO. going to rewrite it as slices
+
 import { createContext } from "react";
 import { IActiveContext, IThemeContext, IActiveInputBtnContext } from "../types/types";
 

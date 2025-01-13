@@ -1,11 +1,11 @@
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import Button from "../../ui-components/Button/Button"
 import Input from "../../ui-components/Input/Input"
 
 import style from './SignInForm.module.scss'
-import { useDispatch} from "react-redux"
+import { useDispatch, useSelector} from "react-redux"
 import { signInUser } from "../../store/signInSlice"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 interface ILogin {
   email: string;
@@ -17,6 +17,9 @@ const SignInForm = () => {
     email: "",
     password: "",
   });
+  const { pathname } = (useLocation().state || { from: "/" }).from;
+  const { auth } = useSelector((state:any) => state.signIn);
+  const navigate = useNavigate();
   const dispatch = useDispatch()
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -26,7 +29,11 @@ const SignInForm = () => {
     e.preventDefault();
     dispatch(signInUser(loginData));
   };
-
+  useEffect(() => {
+    if (auth) {
+      navigate(pathname, { replace: true });
+    }
+  }, [auth]);
   return (
     <div className={style.formWrap}>
     <form className={style.form} onSubmit={formHandler}>
@@ -44,7 +51,7 @@ const SignInForm = () => {
           title="Password"
           onChange={inputHandler}
         />
-      <a className={style.link} href='#'>Forgot password?</a>
+      <Link to='/reset-password' className={style.link} >Forgot password?</Link>
       <Button text = 'Sign In' type='submit'/>
       <div className={style.formFooter}>
         <p>Don’t have an account?</p>

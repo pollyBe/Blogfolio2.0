@@ -17,6 +17,6 @@ export default configureStore({
     user: userSlice,
   },
   middleware(getDefaultMiddleware) {
-    return getDefaultMiddleware().concat(thunk);
+    return getDefaultMiddleware().concat();
   },
 });

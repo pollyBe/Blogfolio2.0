@@ -10,6 +10,7 @@ import Success from "./Pages/Success/Success";
 import Post from "./Pages/Post/Post";
 import MyPosts from "./Pages/MyPosts/myPosts";
 import ProtectedRoute from "./Pages/ProtectedRote/ProtectedRote";
+import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 const App = () => {
   return (
     <>
@@ -21,6 +22,7 @@ const App = () => {
             <ProtectedRoute><MyPosts /></ProtectedRoute>
             }
           />
+          <Route path='/reset-password' element={<ResetPassword/>} />
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/confirm' element={<RegConfirm />} />

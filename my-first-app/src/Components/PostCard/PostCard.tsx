@@ -1,8 +1,7 @@
-import Like from '../../assets/Icon-Thumbs-Up.svg?react'
-import DisLike from '../../assets/Icon-Thumbs-Down.svg?react'
-import Save from '../../assets/Icon-Bookmark.svg?react'
-
 import style from './PostCard.module.scss'
+import LikeBtnGroup from '../LikeBtnGroup/LikeBtnGroup'
+import SaveBtnGroup from '../SaveBtnGroup/SaveBtnGroup'
+import CardSizeS from './CardSizeS/CardSizeS';
 
 interface IProps {
   size: 'sizeL' | 'sizeM' | 'sizeS',
@@ -32,14 +31,8 @@ const PostCard = ({ size, date, title, description, image, onClick }: IProps) =>
       </div>
     </div>
     <div className={style.postFooter}>
-      <div className={style.btnWrap}>
-        <button type="button"><Like className={style.icon}/></button>
-        <button type="button"><DisLike className={style.icon}/></button>
-      </div>
-      <div className={style.btnWrap}>
-        <button type='button'><Save className={style.icon}/></button>
-        <button type='button'>...</button>
-      </div>
+    <LikeBtnGroup/>
+    <SaveBtnGroup/>
     </div>
   </li>);
   case 'sizeM':
@@ -54,40 +47,12 @@ const PostCard = ({ size, date, title, description, image, onClick }: IProps) =>
         <h3 className={style.title}>{title.substring(0, 50)} ...</h3>
       </div>
       <div className={style.postFooter}>
-        <div className={style.btnWrap}>
-          <button type="button"><Like className={style.icon} /></button>
-          <button type="button"><DisLike className={style.icon} /></button>
-        </div>
-        <div className={style.btnWrap}>
-          <button type='button'><Save className={style.icon}/></button>
-          <button type='button'>...</button>
-        </div>
+      <LikeBtnGroup/>
+      <SaveBtnGroup/>
       </div>
     </li>);
     case 'sizeS':
-      return (<li className={style.cardSizeS} >
-        <div className={style.cardWrap}>
-        <div className={style.infoWrap}>
-          <div className={style.date}>
-              <p>{date}</p>
-          </div>
-            <h3 className={style.title}>{title.substring(0, 150)} ...</h3>
-          </div>
-          <div className={style.imgWrap} onClick={onClick}>
-            <img src={image} />
-          </div>
-        </div>
-        <div className={style.postFooter}>
-          <div className={style.btnWrap}>
-            <button type="button"><Like className={style.icon}/></button>
-            <button type="button"><DisLike className={style.icon}/></button>
-          </div>
-          <div className={style.btnWrap}>
-            <button type='button'><Save className={style.icon}/></button>
-            <button type='button'>...</button>
-          </div>
-        </div>
-      </li>);
+      return <CardSizeS/>;
   }
 }
 export default PostCard

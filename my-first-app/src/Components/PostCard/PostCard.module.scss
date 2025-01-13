@@ -62,25 +62,6 @@
     border: none;
     border-bottom: 1px solid #dadada;
     padding-bottom: 40px;
-    .btnWrap {
-      display: flex;
-      button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: none;
-        background-color: transparent;
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-      }
-    }
-  }
-
-  .icon {
-    width: 22px;
-    height: 22px;
-    fill: var(--text-color);
   }
 }
 .cardSizeM {
@@ -134,24 +115,6 @@
     border: none;
     border-bottom: 1px solid #dadada;
     padding-bottom: 40px;
-    .btnWrap {
-      display: flex;
-      button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: none;
-        background-color: transparent;
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-      }
-    }
-  }
-  .icon {
-    width: 22px;
-    height: 22px;
-    fill: var(--text-color);
   }
 }
 .cardSizeS {
@@ -211,24 +174,5 @@
     border: none;
     border-bottom: 1px solid #dadada;
     padding-bottom: 40px;
-    .btnWrap {
-      display: flex;
-      button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: none;
-        background-color: transparent;
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-      }
-    }
-  }
-
-  .icon {
-    width: 22px;
-    height: 22px;
-    fill: var(--text-color);
   }
 }
