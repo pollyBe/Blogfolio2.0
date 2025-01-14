@@ -1,9 +1,8 @@
 import { NavLink } from "react-router-dom"
-import Like from '../../assets/Icon-Thumbs-Up.svg?react'
-import DisLike from '../../assets/Icon-Thumbs-Down.svg?react'
 import Save from '../../assets/Icon-Bookmark.svg?react'
 
 import style from './SelectedPost.module.scss'
+import LikeBtnGroup from "../LikeBtnGroup/LikeBtnGroup"
 
 interface IPost{
   id: number,
@@ -27,10 +26,7 @@ const SelectedPost = ({id, title, img, description}:IPost) => {
           </div>
           <p>{description}</p>
           <div className={style.postFooter}>
-            <div className={style.btnWrap}>
-              <button type="button"><Like className={style.icon}/></  button>
-              <button type="button"><DisLike className={style.icon}/  ></button>
-            </div>
+            <LikeBtnGroup/>
             <div className={style.btnWrap}>
             <button type='button'><Save className={style.icon}/> Add to Favourites</button>
             </div>

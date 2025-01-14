@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { switchIsActive } from "../../store/isActiveSlice";
 
 const BurgerMenu = () => {
-  const { isActive } = useSelector((state) => state.isActive)
+  const { isActive } = useSelector((state:any) => state.isActive)
   const dispatch = useDispatch()
 
   return (

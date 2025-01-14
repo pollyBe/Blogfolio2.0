@@ -14,7 +14,7 @@ import { stopTokenUpdate } from "../../store/signInSlice";
 
 
 const Navbar = () => {
-  const { theme } = useSelector((state:any) => state.themeInStoreConfiguration)
+  const { theme } = useSelector((state:any) => state.theme)
   const { isActive } = useSelector((state:any) => state.isActive)
   const dispatch = useDispatch()
   const { auth } = useSelector((state:any) => state.signIn);

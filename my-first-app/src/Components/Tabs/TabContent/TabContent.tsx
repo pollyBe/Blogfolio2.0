@@ -14,7 +14,8 @@ interface IPost{
   title: string,
   description: string,
   image?: string,
-  id:number,
+  id: number,
+  onclick: () => void;
 }
 
 const TabContent = () => {
@@ -50,7 +51,7 @@ if (error) {
   };
 
   const totalPages = Math.ceil(totalItems / itemsPerPage);
-  console.log(posts)
+
   const handlePageChange = (pageNumber: number) => {
     dispatch(setPage(pageNumber));
   };

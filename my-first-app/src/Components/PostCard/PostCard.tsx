@@ -1,7 +1,6 @@
-import style from './PostCard.module.scss'
-import LikeBtnGroup from '../LikeBtnGroup/LikeBtnGroup'
-import SaveBtnGroup from '../SaveBtnGroup/SaveBtnGroup'
 import CardSizeS from './CardSizeS/CardSizeS';
+import CardSizeM from './CardSizeM/CardSizeM';
+import CardSizeL from './CardSixeL/CardSizeL';
 
 interface IProps {
   size: 'sizeL' | 'sizeM' | 'sizeS',
@@ -11,48 +10,29 @@ interface IProps {
   image?: string,
   onClick: () => void,
 }
-const PostCard = ({ size, date, title, description, image, onClick }: IProps) => {
+
+const PostCard = ({size, date, title, description, image, onClick}:IProps) => {
 
   switch (size) {
     case 'sizeL':
-      return (<li className={style.cardSizeL} >
-    <div className={style.cardWrap}>
-      <div className={style.infoWrap}>
-        <div className={style.date}>
-          <p>{date}</p>
-        </div>
-        <h3 className={style.title} onClick={onClick}>{title.substring(0, 150)} ...</h3>
-        <div className={style.description}>
-          <p>{description.substring(0, 300)} ...</p>
-        </div>
-      </div>
-      <div className={style.imgWrap}>
-        <img src={image} />
-      </div>
-    </div>
-    <div className={style.postFooter}>
-    <LikeBtnGroup/>
-    <SaveBtnGroup/>
-    </div>
-  </li>);
-  case 'sizeM':
-    return (<li className={style.cardSizeM} >
-      <div className={style.cardWrap}>
-        <div className={style.imgWrap} onClick={onClick}>
-          <img src={image} />
-        </div>
-        <div className={style.date}>
-            <p>{date}</p>
-        </div>
-        <h3 className={style.title}>{title.substring(0, 50)} ...</h3>
-      </div>
-      <div className={style.postFooter}>
-      <LikeBtnGroup/>
-      <SaveBtnGroup/>
-      </div>
-    </li>);
+      return <CardSizeL
+        date={date}
+        title={title}
+        description={description}
+        image={image}
+        onClick={onClick} />
+    case 'sizeM':
+      return <CardSizeM
+        date={date}
+        title={title}
+        image={image}
+        onClick={onClick} />
     case 'sizeS':
-      return <CardSizeS/>;
+      return <CardSizeS
+        date={date}
+        title={title}
+        image={image}
+        onClick={onClick} />;
   }
 }
 export default PostCard
