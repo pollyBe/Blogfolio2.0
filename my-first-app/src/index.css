@@ -1,0 +1,22 @@
+* {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.light-theme {
+  --background-color: #f3f3f3;
+  --text-color: #45444c;
+}
+.dark-theme {
+  --background-color: #45444c;
+  --text-color: #f3f3f3;
+}
