@@ -13,3 +13,18 @@
   align-items: center;
   height: 100%;
 }
+
+.personLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.7s ease-in-out;
+  border-left: 1px solid #5360cd;
+  padding: 20px 30px;
+  background-color: #2231aa;
+  height: 100%;
+  &:hover {
+    transform: scale(0.99);
+  }
+}

@@ -11,6 +11,7 @@ import Post from "./Pages/Post/Post";
 import MyPosts from "./Pages/MyPosts/myPosts";
 import ProtectedRoute from "./Pages/ProtectedRote/ProtectedRote";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
+import SearchResults from "./Pages/SearchResults/SearchResults";
 const App = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path='/post' element={<Post />} />
+          <Route path='/search-results' element={<SearchResults/>}/>
           <Route path='/my-posts' element={
             <ProtectedRoute><MyPosts /></ProtectedRoute>
             }

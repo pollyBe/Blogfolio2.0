@@ -1,14 +1,29 @@
 .searchwrap {
   display: flex;
   height: 100%;
-  // width: 90vw;
+  width: 90vw;
   display: flex;
   justify-content: flex-end;
   transition: 0.5s ease-in-out;
 }
+.submitBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f0f8ff;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.7s ease-in-out;
+  padding: 20px 30px;
+  background-color: rgba(34, 49, 170, 0.5);
+  height: 100%;
+  &:hover {
+    transform: scale(0.99);
+  }
+}
 
 .inputBox {
-  display: block;
+  display: flex;
   width: 100%;
   font-size: 24px;
   padding: 5px 10px;
@@ -16,6 +31,14 @@
   color: #f0f8ff;
   transition: 0.5s ease-in-out;
   border: none;
+  input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    font-weight: 600;
+  }
 }
 
 .hide {
@@ -28,6 +51,7 @@
   align-items: center;
   transition: 0.7s ease-in-out;
   padding: 20px 20px;
+
   cursor: pointer;
   background-color: #2231aa;
 
