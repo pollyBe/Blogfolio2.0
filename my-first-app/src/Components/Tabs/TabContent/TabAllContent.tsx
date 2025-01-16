@@ -3,10 +3,9 @@ import PostCard from '../../PostCard/PostCard'
 import style from './TabContent.module.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { FetchPosts, selectPost, setPage } from '../../../store/postSliceRTK';
+import { FetchPosts, selectPost } from '../../../store/postSliceRTK';
 
-import Next from '../../../assets/Icon-Arrow-Next.svg?react'
-import Prev from '../../../assets/Icon-Arrow-Prev.svg?react'
+import PostsPagination from '../../PostsPagination/PostsPagination';
 
 interface IPost{
   size: 'sizeL' | 'sizeM' | 'sizeS',
@@ -17,7 +16,7 @@ interface IPost{
   id:number,
 }
 
-const TabContent = () => {
+const TabAllContent = () => {
   const dispatch = useDispatch()
   const {
     posts,
@@ -25,7 +24,6 @@ const TabContent = () => {
     error,
     currentPage,
     itemsPerPage,
-    totalItems,
     searchQuery,
     ordering,} = useSelector((state: any) => state.posts)
   const navigate = useNavigate()
@@ -49,41 +47,6 @@ if (error) {
     return 'sizeM';
   };
 
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-  console.log(posts)
-  const handlePageChange = (pageNumber: number) => {
-    dispatch(setPage(pageNumber));
-  };
-  const handlePrevious = () => {
-    if (currentPage > 1) {
-      dispatch(setPage(currentPage - 1));
-    }
-  };
-  const handleNext = () => {
-    if (currentPage < totalPages) {
-      dispatch(setPage(currentPage + 1));
-    }
-  };
-  const renderPageNumber = () => {
-    const pageNumber = [];
-    const maxPageNumber = 4;
-    const startPage = Math.max(currentPage - Math.floor(maxPageNumber / 2), 1);
-    const endPage = Math.min(startPage + maxPageNumber - 1, totalPages);
-    for (let i = startPage; i <= endPage; i++) {
-      pageNumber.push(
-        <button
-          className ={ i === currentPage ? style.pageNubmersCurr : style.pageNubmers }
-          key={i}
-          onClick={() => handlePageChange(i)}
-        >
-          {i}
-        </button>
-      );
-    }
-    console.log(pageNumber)
-    return pageNumber;
-  };
-
   return (
     <>
     <ul className={style.postsWrap}>
@@ -103,17 +66,10 @@ if (error) {
         />
       ))
     }
-    </ul>
-    <div className={style.numbersWrapper}>
-        <button className={style.NumberButton} onClick={handlePrevious} disabled={currentPage === 1}>
-          <Prev className={style.icon}/> Prev
-        </button>
-        <div className={style.pageNubmersWrap}>{renderPageNumber()}</div>
-        <button className={style.NumberButton}  onClick={handleNext} disabled={currentPage === totalPages}>
-          Next <Next className={style.icon}/>
-        </button>
-      </div>
+      </ul>
+      <PostsPagination/>
+
     </>
   );
 };
-export default TabContent;
+export default TabAllContent;
