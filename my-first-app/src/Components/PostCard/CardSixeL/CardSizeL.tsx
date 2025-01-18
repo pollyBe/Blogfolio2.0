@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import LikeBtnGroup from "../../LikeBtnGroup/LikeBtnGroup";
 import SaveBtnGroup from "../../SaveBtnGroup/SaveBtnGroup";
 import style from './CardSizeL.module.scss';

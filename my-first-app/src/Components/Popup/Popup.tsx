@@ -15,6 +15,7 @@ const Popup = ({ images }) => {
   useEffect(() => {
     if (selectedImage && Array.isArray(images)) {
       setCurrentIndex(images.findIndex(image => image === selectedImage));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [selectedImage, images]);
 
