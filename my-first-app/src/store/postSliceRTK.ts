@@ -6,7 +6,7 @@ export const FetchPosts = createAsyncThunk(
     const { limit, offset, searchQuery, ordering } = objectFromPostsPage;
     try {
       const responce = await fetch(
-        `https://studapi.teachmeskills.by/blog/posts/?limit=${limit}&offset=${offset}&ordering=${ordering}&search=${searchQuery}`
+        `https://studapi.teachmeskills.by/blog/posts/?author__course_group=14&format=json&limit=${limit}&offset=${offset}&ordering=${ordering}&search=${searchQuery}`
       );
       if (!responce.ok) {
         throw new Error("error");
@@ -30,6 +30,9 @@ const postSliceRTK = createSlice({
     loading: false,
     error: null as string | null,
     selectedPost: null,
+    isPopupVisible: false,
+    selectedImage: null,
+    isFavourite: false,
   },
   reducers: {
     selectPost(state, action) {
@@ -44,6 +47,21 @@ const postSliceRTK = createSlice({
     },
     setOrdering: (state, action) => {
       state.ordering = action.payload;
+    },
+    showPopup(state) {
+      state.isPopupVisible = true;
+    },
+    hidePopup(state) {
+      state.isPopupVisible = false;
+    },
+    setSelectedImage: (state, action) => {
+      state.selectedImage = action.payload;
+    },
+    clearSelectedImage: (state) => {
+      state.selectedImage = null;
+    },
+    setIsFavourite: (state, action) => {
+      state.isFavourite = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -63,6 +81,15 @@ const postSliceRTK = createSlice({
       });
   },
 });
-export const { selectPost, setPage, setSearchQuery, setOrdering } =
-  postSliceRTK.actions;
+export const {
+  selectPost,
+  setPage,
+  setSearchQuery,
+  setOrdering,
+  setSelectedImage,
+  clearSelectedImage,
+  setIsFavourite,
+  showPopup,
+  hidePopup,
+} = postSliceRTK.actions;
 export default postSliceRTK.reducer;

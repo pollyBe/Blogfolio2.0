@@ -9,10 +9,13 @@ import RegConfirm from "./Pages/RegConfirm/RegConfirm";
 import Success from "./Pages/Success/Success";
 import Post from "./Pages/Post/Post";
 import MyPosts from "./Pages/MyPosts/myPosts";
-import ProtectedRoute from "./Pages/ProtectedRote/ProtectedRote";
-import ResetPassword from "./Pages/ResetPassword/ResetPassword";
-import SearchResults from "./Pages/SearchResults/SearchResults";
+import ProtectedRoute from "./Pages/ProtectedRote/ProtectedRote"; import ResetPassword from "./Pages/ResetPassword/ResetPassword"; import SearchResults from "./Pages/SearchResults/SearchResults";
+import Popup from './Components/Popup/Popup';
+import { shallowEqual, useSelector } from "react-redux";
+
 const App = () => {
+  const images = useSelector( (state) => state.posts.posts.map(post => post.image), shallowEqual );
+
   return (
     <>
       <Routes>
@@ -33,6 +36,7 @@ const App = () => {
           <Route path="activate/:uid/:token" element={<RegConfirm />} />
         </Route>
       </Routes>
+      <Popup images={images} />
     </>
   );
 };
