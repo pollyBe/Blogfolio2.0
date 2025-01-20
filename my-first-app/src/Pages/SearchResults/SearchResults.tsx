@@ -27,7 +27,7 @@ const SearchResults = () => {
     return <div className={style.error}>Error: {error}</div>;
   }
   if (posts.length === 0) {
-    return <div className={style.noResults}>No results found.</div>;
+    return <Title title='No results found.' />;
   }
   return (
   <div className={style.searchContainer}>

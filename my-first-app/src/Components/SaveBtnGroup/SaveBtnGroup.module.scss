@@ -12,7 +12,14 @@
   }
 }
 .icon {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   fill: var(--text-color);
+  cursor: pointer;
+}
+.iconBlack {
+  width: 26px;
+  height: 26px;
+  fill: #760d0d;
+  cursor: pointer;
 }

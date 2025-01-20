@@ -6,14 +6,15 @@ import style from './CardSizeL.module.scss';
 import { setSelectedImage, showPopup } from '../../../store/postSliceRTK';
 
 interface IProps {
-  date: string,
-  title: string,
-  description: string,
-  image?: string,
-  onClick: () => void,
+  id: number;
+  date: string;
+  title: string;
+  description: string;
+  image?: string;
+  onClick: () => void;
 }
 
-const CardSizeL = ({ date, title, description, image, onClick }: IProps) => {
+const CardSizeL: React.FC<IProps> = ({ id, date, title, description, image, onClick }) => {
   const dispatch = useDispatch();
 
   const handleImageClick = useCallback(() => {
@@ -43,10 +44,11 @@ const CardSizeL = ({ date, title, description, image, onClick }: IProps) => {
       </div>
       <div className={style.postFooter}>
         <LikeBtnGroup />
-        <SaveBtnGroup />
+        <SaveBtnGroup postId={id} />
       </div>
     </li>
   );
 };
 
 export default memo(CardSizeL);
+

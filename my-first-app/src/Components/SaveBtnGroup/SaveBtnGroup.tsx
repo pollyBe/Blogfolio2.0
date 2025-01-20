@@ -1,12 +1,37 @@
-import Save from '../../assets/Icon-Bookmark.svg?react'
-import style from './SaveBtnGroup.module.scss'
+import { useDispatch, useSelector } from 'react-redux';
+import Save from '../../assets/Icon-Bookmark.svg?react';
+import style from './SaveBtnGroup.module.scss';
+import { useEffect, useState } from 'react';
+import { toggleFavorite } from '../../store/postSliceRTK';
 
-const SaveBtnGroup = () => {
-  return (<>
-      <div className={style.btnWrap}>
-        <button type='button'><Save className={style.icon}/></button>
-        <button type='button'>...</button>
-      </div>
-  </>)
+interface SaveBtnGroupProps {
+  postId: number;
 }
-export default SaveBtnGroup
+
+const SaveBtnGroup: React.FC<SaveBtnGroupProps> = ({ postId }) => {
+  const dispatch = useDispatch();
+  const isFavorite = useSelector((state: any) =>
+    state.posts.posts.find(post => post.id === postId)?.isFavorite
+  );
+  const [added, setAdded] = useState(false);
+
+  useEffect(() => {
+    setAdded(isFavorite || false);
+  }, [isFavorite]);
+
+  function toggleFavourite() {
+    dispatch(toggleFavorite(postId));
+    setAdded(true || false);
+  }
+console.log(postId)
+  return (
+    <div className={style.btnWrap}>
+      <button type="button" onClick={toggleFavourite}>
+        <Save className={!added ? style.icon : style.iconBlack} />
+      </button>
+      <button type="button">...</button>
+    </div>
+  );
+};
+
+export default SaveBtnGroup;
