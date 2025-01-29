@@ -6,6 +6,7 @@ import PostCard from "../../Components/PostCard/PostCard";
 import { useNavigate } from "react-router-dom";
 import { selectPost } from "../../store/postSliceRTK";
 import PostsPagination from "../../Components/PostsPagination/PostsPagination";
+import { RootState } from "../../store";
 
 interface IPost{
   size: 'sizeL' | 'sizeM' | 'sizeS',
@@ -17,7 +18,7 @@ interface IPost{
 }
 
 const SearchResults = () => {
-  const { posts, isLoading, error, searchQuery } = useSelector((state:any) => state.posts);
+  const { posts, isLoading, error, searchQuery } = useSelector((state:RootState) => state.posts);
   const dispatch = useDispatch()
   const navigate = useNavigate()
   if (isLoading) {
@@ -45,6 +46,7 @@ const SearchResults = () => {
             title={post.title}
             description={post.description}
             image={post.image}
+            id={post.id}
           />
         )}
       </div>

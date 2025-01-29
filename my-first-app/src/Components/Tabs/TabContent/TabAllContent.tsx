@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { FetchPosts, selectPost } from '../../../store/postSliceRTK';
 
 import PostsPagination from '../../PostsPagination/PostsPagination';
+import { RootState } from '../../../store';
 
 interface IPost{
   size: 'sizeL' | 'sizeM' | 'sizeS',
@@ -25,7 +26,7 @@ const TabAllContent = () => {
     currentPage,
     itemsPerPage,
     searchQuery,
-    ordering,} = useSelector((state: any) => state.posts)
+    ordering,} = useSelector((state: RootState) => state.posts)
   const navigate = useNavigate()
 useEffect(() => {
   dispatch(FetchPosts({

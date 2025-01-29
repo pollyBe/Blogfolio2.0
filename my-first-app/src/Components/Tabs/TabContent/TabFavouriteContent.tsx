@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import style from './TabContent.module.scss'
 import { useEffect } from "react";
 import Title from "../../../ui-components/Title/Title";
+import { RootState } from "../../../store";
 
 interface IPost{
   size: 'sizeL' | 'sizeM' | 'sizeS',
@@ -20,14 +21,13 @@ interface IPost{
 const TabFavouriteContent = () => {
   const dispatch = useDispatch()
   const {
-    posts,
     favouritePosts,
     loading,
     error,
     currentPage,
     itemsPerPage,
     searchQuery,
-    ordering,} = useSelector((state: any) => state.posts)
+    ordering,} = useSelector((state: RootState) => state.posts)
   const navigate = useNavigate()
 useEffect(() => {
   dispatch(FetchPosts({
@@ -60,6 +60,7 @@ if (error) {
               navigate('/post')
               }
             }
+            id={post.id}
           size={getPostSize(index)}
           date={post.date}
           title={post.title}

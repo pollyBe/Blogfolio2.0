@@ -4,9 +4,10 @@ import { useEffect } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import { useSelector } from "react-redux";
 import Footer from "../../Components/Footer/Footer";
+import { RootState } from "../../store";
 
 const Layout = () => {
-  const { theme } = useSelector((state: any) => state.theme)
+  const { theme } = useSelector((state: RootState) => state.theme)
   useEffect(() => {
     document.body.classList.remove("light-theme", "dark-theme");
     document.body.classList.add(`${theme}-theme`);

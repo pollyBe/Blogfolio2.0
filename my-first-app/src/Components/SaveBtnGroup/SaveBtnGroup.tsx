@@ -3,6 +3,7 @@ import Save from '../../assets/Icon-Bookmark.svg?react';
 import style from './SaveBtnGroup.module.scss';
 import { useEffect, useState } from 'react';
 import { toggleFavorite } from '../../store/postSliceRTK';
+import { RootState } from '../../store';
 
 interface SaveBtnGroupProps {
   postId: number;
@@ -10,7 +11,7 @@ interface SaveBtnGroupProps {
 
 const SaveBtnGroup: React.FC<SaveBtnGroupProps> = ({ postId }) => {
   const dispatch = useDispatch();
-  const isFavorite = useSelector((state: any) =>
+  const isFavorite = useSelector((state: RootState) =>
     state.posts.posts.find(post => post.id === postId)?.isFavorite
   );
   const [added, setAdded] = useState(false);

@@ -5,6 +5,7 @@ import style from './Search.module.scss'
 import { useEffect, useState } from "react"
 import { FetchPosts, setPage, setSearchQuery } from '../../store/postSliceRTK';
 import { useNavigate } from 'react-router-dom';
+import { RootState } from '../../store';
 
 const Search = () => {
   const dispatch = useDispatch()
@@ -14,7 +15,7 @@ const Search = () => {
     itemsPerPage,
     searchQuery,
     ordering,
-  } = useSelector((state:any) => state.posts);
+  } = useSelector((state:RootState) => state.posts);
   useEffect(() => {
     dispatch(
       FetchPosts({
