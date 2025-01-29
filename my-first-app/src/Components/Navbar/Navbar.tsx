@@ -11,13 +11,14 @@ import { switchTheme } from "../../store/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { switchIsActive } from "../../store/isActiveSlice";
 import { stopTokenUpdate } from "../../store/signInSlice";
+import { RootState } from "../../store";
 
 
 const Navbar = () => {
-  const { theme } = useSelector((state:any) => state.theme)
-  const { isActive } = useSelector((state:any) => state.isActive)
+  const { theme } = useSelector((state:RootState) => state.theme)
+  const { isActive } = useSelector((state:RootState) => state.isActive)
   const dispatch = useDispatch()
-  const { auth } = useSelector((state:any) => state.signIn);
+  const { auth } = useSelector((state:RootState) => state.signIn);
   const navigate = useNavigate()
   const location = useLocation()
 

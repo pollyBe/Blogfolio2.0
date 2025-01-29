@@ -6,9 +6,10 @@ import SignInForm from "../../Components/SignInForm/SignInForm"
 import style from './SignIn.module.scss'
 import { useSelector } from "react-redux"
 import { useEffect } from "react"
+import { RootState } from "../../store"
 
 const SignIn = () => {
-  const { auth } = useSelector((state: any) => state.signIn);
+  const { auth } = useSelector((state: RootState) => state.signIn);
   const { pathname } = (useLocation().state || { from: "/" }).from;
   const navigate = useNavigate();
     useEffect(() => {

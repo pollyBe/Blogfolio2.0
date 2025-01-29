@@ -17,7 +17,7 @@ const Header = () => {
       <BurgerMenu />
       <div className={style.right}>
         <Search/>
-        {auth ? <Person /> : <NavLink onClick={() => dispatch(switchIsActive(false))} to='/sign-in'><User /></NavLink>}
+        {auth ? <Person /> : <NavLink className={style.personLink} onClick={() => dispatch(switchIsActive(false))} to='/sign-in'><User /></NavLink>}
       </div>
     </div>
   );

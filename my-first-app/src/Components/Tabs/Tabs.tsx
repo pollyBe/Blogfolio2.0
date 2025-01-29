@@ -5,16 +5,16 @@ import style from './Tabs.module.scss'
 
 const Tabs = () => {
   const [showTab, setShowTab] = useState(0);
+
   const handler = (index: number) => {
     setShowTab(index);
   };
-
   return (
     <>
       <div className={style.tabListWrap}>
         <Tablist selectedTab={showTab} setShowTab={handler} />
       </div>
-      <TabContent />
+      <TabContent selectedTab={showTab} />
     </>
   );
 };

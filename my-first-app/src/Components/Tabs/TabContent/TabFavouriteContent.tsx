@@ -1,12 +1,13 @@
-import { useEffect} from 'react'
-import PostCard from '../../PostCard/PostCard'
-import style from './TabContent.module.scss'
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { FetchPosts, selectPost } from '../../../store/postSliceRTK';
+import { useDispatch, useSelector } from "react-redux";
+import { FetchPosts, selectPost } from "../../../store/postSliceRTK";
+import PostCard from "../../PostCard/PostCard";
+import PostsPagination from "../../PostsPagination/PostsPagination";
+import { useNavigate } from "react-router-dom";
 
-import PostsPagination from '../../PostsPagination/PostsPagination';
-import { RootState } from '../../../store';
+import style from './TabContent.module.scss'
+import { useEffect } from "react";
+import Title from "../../../ui-components/Title/Title";
+import { RootState } from "../../../store";
 
 interface IPost{
   size: 'sizeL' | 'sizeM' | 'sizeS',
@@ -17,10 +18,10 @@ interface IPost{
   id:number,
 }
 
-const TabAllContent = () => {
+const TabFavouriteContent = () => {
   const dispatch = useDispatch()
   const {
-    posts,
+    favouritePosts,
     loading,
     error,
     currentPage,
@@ -35,7 +36,8 @@ useEffect(() => {
     searchQuery: searchQuery,
     ordering: ordering,
   }))
-}, [currentPage, ordering])
+}, [currentPage, ordering, favouritePosts])
+
 if (loading) {
   return <div>loading...</div>;
 }
@@ -47,18 +49,18 @@ if (error) {
     if (index === 0) return 'sizeL';
     return 'sizeM';
   };
-
   return (
     <>
     <ul className={style.postsWrap}>
-    {
-        posts.map((post: IPost, index: number) => (
+    {!favouritePosts? <Title title='No favourite posts'/>:
+        favouritePosts.map((post: IPost, index: number) => (
           <PostCard key={post.id}
             onClick={() => {
               dispatch(selectPost(post))
               navigate('/post')
               }
             }
+            id={post.id}
           size={getPostSize(index)}
           date={post.date}
           title={post.title}
@@ -73,4 +75,5 @@ if (error) {
     </>
   );
 };
-export default TabAllContent;
+
+export default TabFavouriteContent;

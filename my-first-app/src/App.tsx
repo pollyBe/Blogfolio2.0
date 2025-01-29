@@ -8,16 +8,23 @@ import SignIn from "./Pages/SignIn/SignIn";
 import RegConfirm from "./Pages/RegConfirm/RegConfirm";
 import Success from "./Pages/Success/Success";
 import Post from "./Pages/Post/Post";
-import MyPosts from "./Pages/MyPosts/myPosts";
-import ProtectedRoute from "./Pages/ProtectedRote/ProtectedRote";
+import MyPosts from "./Pages/MyPosts/MyPosts";
+import ProtectedRoute from "./Pages/ProtectedRoute/ProtectedRote";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
+import SearchResults from "./Pages/SearchResults/SearchResults";
+import Popup from './Components/Popup/Popup';
+import { shallowEqual, useSelector } from "react-redux";
+
 const App = () => {
+  const images = useSelector( (state:any) => state.posts.posts.map((post: { image: any; }) => post.image), shallowEqual );
+
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path='/post' element={<Post />} />
+          <Route path='/search-results' element={<SearchResults/>}/>
           <Route path='/my-posts' element={
             <ProtectedRoute><MyPosts /></ProtectedRoute>
             }
@@ -31,6 +38,7 @@ const App = () => {
           <Route path="activate/:uid/:token" element={<RegConfirm />} />
         </Route>
       </Routes>
+      <Popup images={images} />
     </>
   );
 };

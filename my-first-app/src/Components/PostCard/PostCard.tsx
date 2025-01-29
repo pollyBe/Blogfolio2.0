@@ -9,9 +9,10 @@ interface IProps {
   description: string,
   image?: string,
   onClick: () => void,
+  id:number
 }
 
-const PostCard = ({size, date, title, description, image, onClick}:IProps) => {
+const PostCard = ({id, size, date, title, description, image, onClick}:IProps) => {
 
   switch (size) {
     case 'sizeL':
@@ -20,7 +21,8 @@ const PostCard = ({size, date, title, description, image, onClick}:IProps) => {
         title={title}
         description={description}
         image={image}
-        onClick={onClick} />
+        onClick={onClick}
+        id={id} />
     case 'sizeM':
       return <CardSizeM
         date={date}

@@ -6,7 +6,7 @@ import signInSlice from "./signInSlice";
 import userMeSlice from "./userMeSlice";
 import userSlice from "./userSlice";
 
-export default configureStore({
+const store = configureStore({
   reducer: {
     theme: themeSlice,
     isActive: isActiveSlice,
@@ -19,3 +19,6 @@ export default configureStore({
     return getDefaultMiddleware().concat();
   },
 });
+export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

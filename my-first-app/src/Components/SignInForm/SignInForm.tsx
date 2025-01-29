@@ -6,6 +6,7 @@ import style from './SignInForm.module.scss'
 import { useDispatch, useSelector} from "react-redux"
 import { signInUser } from "../../store/signInSlice"
 import { useEffect, useState } from "react"
+import { RootState } from "../../store"
 
 interface ILogin {
   email: string;
@@ -18,7 +19,7 @@ const SignInForm = () => {
     password: "",
   });
   const { pathname } = (useLocation().state || { from: "/" }).from;
-  const { auth } = useSelector((state:any) => state.signIn);
+  const { auth } = useSelector((state:RootState) => state.signIn);
   const navigate = useNavigate();
   const dispatch = useDispatch()
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
