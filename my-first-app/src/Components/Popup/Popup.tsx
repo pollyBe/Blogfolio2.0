@@ -5,11 +5,16 @@ import { useEffect, useState } from 'react';
 
 import Prev from '../../assets/Icon-Arrow-Prev.svg?react'
 import Next from '../../assets/Icon-Arrow-Next.svg?react'
+import { RootState } from '../../store';
 
-const Popup = ({ images }) => {
+interface IProps{
+  images:string[]
+}
+
+const Popup = ({ images }:IProps) => {
   const dispatch = useDispatch();
 
-  const selectedImage = useSelector((state:any) => state.posts.selectedImage);
+  const selectedImage = useSelector((state:RootState) => state.posts.selectedImage);
   const isPopupVisible = useSelector((state:any) => state.posts.isPopupVisible);
 
   useEffect(() => {

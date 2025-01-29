@@ -4,6 +4,7 @@ import {  setPage } from '../../store/postSliceRTK';
 
 import Next from '../../assets/Icon-Arrow-Next.svg?react'
 import Prev from '../../assets/Icon-Arrow-Prev.svg?react'
+import { RootState } from '../../store';
 
 
 
@@ -13,7 +14,7 @@ const PostsPagination = () => {
     currentPage,
     itemsPerPage,
     totalItems,
-  } = useSelector((state: any) => state.posts)
+  } = useSelector((state: RootState) => state.posts)
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const handlePageChange = (pageNumber: number) => {

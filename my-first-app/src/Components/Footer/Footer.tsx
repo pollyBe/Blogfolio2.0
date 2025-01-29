@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <footer className={style.footer}>
       <div className={style.container}>
-        <p>©{currentYear} Blogfolio</p>
-        <p>All rights reserved</p>
+        <p>©{currentYear} Kinogo-clone</p>
+        <p>By Polina Belash</p>
       </div>
     </footer>
   )

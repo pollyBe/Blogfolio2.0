@@ -16,7 +16,7 @@ import Popup from './Components/Popup/Popup';
 import { shallowEqual, useSelector } from "react-redux";
 
 const App = () => {
-  const images = useSelector( (state:any) => state.posts.posts.map(post => post.image), shallowEqual );
+  const images = useSelector( (state:any) => state.posts.posts.map((post: { image: any; }) => post.image), shallowEqual );
 
   return (
     <>

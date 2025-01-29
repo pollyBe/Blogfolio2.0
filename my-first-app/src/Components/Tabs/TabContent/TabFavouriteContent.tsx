@@ -37,7 +37,7 @@ useEffect(() => {
     ordering: ordering,
   }))
 }, [currentPage, ordering, favouritePosts])
-  console.log(posts)
+
 if (loading) {
   return <div>loading...</div>;
 }

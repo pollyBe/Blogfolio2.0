@@ -19,11 +19,11 @@ const SaveBtnGroup: React.FC<SaveBtnGroupProps> = ({ postId }) => {
     setAdded(isFavorite || false);
   }, [isFavorite]);
 
-  function toggleFavourite() {
+  const toggleFavourite=()=> {
     dispatch(toggleFavorite(postId));
     setAdded(true || false);
   }
-console.log(postId)
+
   return (
     <div className={style.btnWrap}>
       <button type="button" onClick={toggleFavourite}>
